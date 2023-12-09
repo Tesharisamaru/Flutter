@@ -16,8 +16,7 @@ class VehicleWidget extends StatefulWidget {
 }
 
 class _VehicleWidgetState extends State<VehicleWidget> {
-  String selectedVehicle = 'Car';
-  int totalCost = 0;
+  TypeVehicle? selectedVehicle;
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +31,11 @@ class _VehicleWidgetState extends State<VehicleWidget> {
                 children: [
                   const SizedBox(width: 16), // Espace horizontal de 16 dp
                   Radio(
-                    value: widget.typeVehicle.value,
+                    value: widget.typeVehicle,
                     groupValue: selectedVehicle,
                     onChanged: (value) {
                       setState(() {
-                        selectedVehicle = widget.typeVehicle.value.toString();
-                        updateTotalCost();
+                        selectedVehicle = widget.typeVehicle;
                       });
                     },
                   ),
@@ -51,13 +49,5 @@ class _VehicleWidgetState extends State<VehicleWidget> {
         ],
       ),
     );
-  }
-
-  void updateTotalCost() {
-    selectedVehicle = widget.typeVehicle.value.toString() ;
-
-    setState(() {
-      totalCost = int.parse(selectedVehicle);
-    });
   }
 }

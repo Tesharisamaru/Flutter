@@ -18,9 +18,7 @@ class TireWidget extends StatefulWidget {
 }
 
 class _TireWidgetState extends State<TireWidget> {
-  String selectedVehicle = '';
-  int totalCost = 0;
-
+  TypeTire? selectedTire;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,12 +32,11 @@ class _TireWidgetState extends State<TireWidget> {
                 children: [
                   const SizedBox(width: 16), // Espace horizontal de 16 dp
                   Radio(
-                    value: widget.typeTire.value,
-                    groupValue: selectedVehicle,
+                    value: widget.typeTire,
+                    groupValue: selectedTire,
                     onChanged: (value) {
                       setState(() {
-                        selectedVehicle = widget.typeTire.value.toString();
-                        updateTotalCost();
+                        selectedTire = widget.typeTire;
                       });
                     },
                   ),
@@ -55,11 +52,4 @@ class _TireWidgetState extends State<TireWidget> {
     );
   }
 
-  void updateTotalCost() {
-    selectedVehicle = widget.typeTire.value.toString() ;
-
-    setState(() {
-      totalCost = int.parse(selectedVehicle);
-    });
-  }
 }

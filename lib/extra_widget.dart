@@ -36,7 +36,6 @@ class _ExtraWidgetState extends State<ExtraWidget> {
                     onChanged: (value) {
                       setState(() {
                         isSelected = value!;
-                        updateTotalCost();
                       });
                     },
                   ),
@@ -50,11 +49,5 @@ class _ExtraWidgetState extends State<ExtraWidget> {
         ],
       ),
     );
-  }
-
-  void updateTotalCost() {
-    setState(() {
-      totalCost = isSelected ? widget.typeExtra.value : 0;
-    });
   }
 }

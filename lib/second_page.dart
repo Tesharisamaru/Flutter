@@ -35,9 +35,16 @@ class PurchaseDoneScreen extends StatelessWidget {
             Text('Total Cost: $totalCost credits'),
             Text('Selected Vehicle: $selectedVehicle'),
             Text('Remaining Credits: $remainingCredits credits'),
+
+            const SizedBox(height: 32),
+            Image.asset(
+              'lib/assets/helmet.png', // Replace 'your_image.png' with your image asset path
+              width: 200, // Set the width as per your requirement
+              height: 200, // Set the height as per your requirement
+            ),
             const SizedBox(height: 32),
             ElevatedButton(
-              onPressed: () {// Copiez les détails dans le presse-papiers
+              onPressed: () {
                 String purchaseDetails = """
                 Purchase Summary
                 Total Cost: $totalCost credits
